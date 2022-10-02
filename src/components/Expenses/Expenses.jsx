@@ -12,17 +12,18 @@ const Expenses = (props) => {
         setFilteredYear(yearDataFilter)
     }
 
-    console.log(filteredYear);
+    const filteredExpenses = props.expenses.filter((e) => {
+        //e.date es un objeto, entonces necesitamos obtener el año con, y pasarlo a string con metodo toString()
+        return e.date.getFullYear().toString() === filteredYear;
+    });
 
+    // console.log(filteredExpenses)
     return (
         <div>
-
             <Card className='expenses'>
                 <ExpenseFilter yearState={saveYearData} selected={filteredYear} />
-                <ExpenseItem title={props.expenses[0].title} amount={props.expenses[0].amount} date={props.expenses[0].date} />
-                <ExpenseItem title={props.expenses[1].title} amount={props.expenses[1].amount} date={props.expenses[1].date} />
-                <ExpenseItem title={props.expenses[2].title} amount={props.expenses[2].amount} date={props.expenses[2].date} />
-                <ExpenseItem title={props.expenses[3].title} amount={props.expenses[3].amount} date={props.expenses[3].date} />
+                {filteredExpenses.map((e) => <ExpenseItem key={e.id} title={e.title} amount={e.amount} date={e.date} /> )}
+                {/* {props.expenses.map((e) => <ExpenseItem key={e.id} title={e.title} amount={e.amount} date={e.date} />)} */}
             </Card>
         </div>
     )
