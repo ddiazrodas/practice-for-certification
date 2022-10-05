@@ -6,13 +6,15 @@ import Card from "../UI/Card";
 const ExpenseItem = (props) => {
 
     return (
-        <Card className='expense-item'>
-            <ExpenseDate date={props.date}/>
-            <div className='expense-item__description'>
-                <h2>{props.title}</h2>
-                <h3 className='expense-item__price'>${props.amount}</h3>
-            </div>
-        </Card>
+        <li>
+            <Card className='expense-item'>
+                <ExpenseDate date={props.date} />
+                <div className='expense-item__description'>
+                    <h2>{props.title}</h2>
+                    <h3 className='expense-item__price'>${props.amount}</h3>
+                </div>
+            </Card>
+        </li>
     )
 }
 
