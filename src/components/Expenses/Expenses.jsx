@@ -3,6 +3,7 @@ import Card from "../UI/Card";
 import ExpenseFilter from "./ExpenseFilter";
 import './Expenses.css';
 import ExpensesList from './ExpensesList';
+import ExpensesChart from "./ExpensesChart"; 
 
 const Expenses = (props) => {
 
@@ -22,7 +23,7 @@ const Expenses = (props) => {
         <div>
             <Card className='expenses'>
                 <ExpenseFilter yearState={saveYearData} selected={filteredYear} />
-
+                <ExpensesChart expenses={ filteredExpenses } />
                 <ExpensesList expenses={filteredExpenses}/>
 
                 {/* {filteredExpenses.length === 0 ? <p>No se encontraron gastos en éste período</p> : filteredExpenses.map((e) => <ExpenseItem key={e.id} title={e.title} amount={e.amount} date={e.date} /> )} */}
